@@ -1,0 +1,16 @@
+{% block body %}
+	{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+	<h1>Ajouter une experience</h1>
+	{{ form_start(form) }}
+	{{ form_row(form.title,{'attr':{'label': "Nom de l'experience ",'placeholder':"Nom de l'experience"}}) }}
+	{{ form_row(form.description,{'attr':{'label':"Description",'placeholder':"Description"}}) }}
+	{{ form_row(form.lieu,{'attr':{'label':'Lieu','placeholder':'Lieu'}}) }}
+	{{ form_row(form.duree,{'attr':{'label':'Duree','placeholder':'Duree'}}) }}
+
+
+	<button type="submit" class="btn btn-success ">Add</button>
+	<a class="nav-link" href="{{ path('experience') }}">back</a>
+
+	{{ form_end(form) }}
+{% endblock %}

@@ -6,38 +6,8 @@
 			{% block title %}Welcome!
 			{% endblock %}
 		</title>
-        <link rel="stylesheet" href="css/vendor.css" />
-        <link rel="stylesheet" href="css/style.css" />
-  </head>
-
-    <section class="p-0"
-      data-top-top="transform: translateY(0px);" 
-      data-top-bottom="transform: translateY(200px);">
-      <div class="swiper-container text-white">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide vh-100">
-                <div class="image image-overlay image-zoom" style="background-image:url(bg_img.jpg)"></div>
-                <nav class="navbar navbar-expand-lg navbar-dark">
-                    <div class="collapse navbar-collapse" id="navbarColor01">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ path('home') }}">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ path('competence') }}">competence</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ path('experience') }}">experience</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ path('formation') }}">formation</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-                {% block body %}{% endblock %}
-	        </div>
-        </div>
-      </div>
-    </section>
+		<link rel="stylesheet" href="css/vendor.css"/>
+		<link rel="stylesheet" href="css/style.css"/>
+	</head>
+	{% block body %}{% endblock %}
 </html>

@@ -1,85 +1,65 @@
-{% extends 'base.html.twig' %}  
-{% block body %} 
+{% extends 'base.html.twig' %}
+{% block body %}
 
+	<section class="p-0" data-top-top="transform: translateY(0px);" data-top-bottom="transform: translateY(200px);">
+		<div class="swiper-container text-white">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide vh-100">
+					<div class="image image-overlay image-zoom" style="background-image:url(bg_img.jpg)"></div>
+					<nav class="navbar navbar-expand-lg navbar-dark">
+						<div class="collapse navbar-collapse" id="navbarColor01">
+							<ul class="navbar-nav mr-auto">
+								<li class="nav-item">
+									<a class="nav-link" href="{{ path('home') }}">Home</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="{{ path('competence') }}">competence</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="{{ path('experience') }}">experience</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="{{ path('formation') }}">formation</a>
+								</li>
+							</ul>
+							<div class="nav-item float-right  ">
+								<a class="nav-link " href="{{path('competence_add')}}">Ajouter une competence</a>
+							</div>
 
- <section class="bg-white text-black "
-    
-      data-top-top="transform: translateY(0px);" 
-      data-top-bottom="transform: translateY(200px);">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-4">
-            <h2 class="fs-24 text-uppercase letter-spacing"><b>01.</b> Compétences Informatiques</h2>
-          </div>
-          <div class="col-md-8">
-            <div class="row">
-      	
-              <div class="col-12 pb-2">
-                <h4 class="progress-title">C/C++</h4>
-                <div class="progress-item">
-                  <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"><span>60%</span></div>
-                  </div>
-                </div>
-              </div>
+						</div>
+					</nav>
+					<section class="bg-white text-black " data-top-top="transform: translateY(0px);" data-top-bottom="transform: translateY(200px);">
+						<div class="container">
+							<div class="row align-items-center">
+								<div class="col-md-4">
+									<h2 class="fs-24 text-uppercase letter-spacing">
+										<b>01.</b>
+										Compétences Informatiques</h2>
+								</div>
+								<div class="col-md-8">
+									<div class="row">
 
-              <div class="col-12 pb-2">
-                <h4 class="progress-title">JAVA</h4>
-                <div class="progress-item">
-                  <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><span>50%</span></div>
-                  </div>
-                </div>
-              </div>
+										{% for competence in competences %}
+											<div class="col-12 pb-2">
+												<h4 class="progress-title">{{ competence.nom }}</h4>
+												<div class="progress-item">
+													<div class="progress">
+														<div class="progress-bar" role="progressbar" style="width: {{ competence.niveau }}%;" aria-valuenow="{{ competence.niveau }}" aria-valuemin="0" aria-valuemax="100">
+															<span>{{ competence.niveau }}%</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										{% endfor %}
 
-              <div class="col-12 pb-2">
-                <h4 class="progress-title">PHYTON</h4>
-                <div class="progress-item">
-                  <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"><span>30%</span></div>
-                  </div>
-                </div>
-              </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
 
-              <div class="col-12 pb-2">
-                <h4 class="progress-title">MySQL</h4>
-                <div class="progress-item">
-                  <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"><span>90%</span></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-12 pb-2">
-                <h4 class="progress-title">SWIFT</h4>
-                <div class="progress-item">
-                  <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"><span>40%</span></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-12 pb-2">
-                <h4 class="progress-title">SYMFONY/PHP</h4>
-                <div class="progress-item">
-                  <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"><span>70%</span></div>
-                  </div>
-                </div>
-              </div>            
-
-              <div class="col-12 pb-2">
-                <h4 class="progress-title">PIC 16F/18F</h4>
-                <div class="progress-item">
-                  <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"><span>60%</span></div>
-                  </div>
-                </div>
-              </div>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+				</div>
+			</div>
+		</div>
+	</section>
 {% endblock %}

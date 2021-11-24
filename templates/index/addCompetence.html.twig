@@ -1,0 +1,12 @@
+{% block body %}
+	{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+	<h1>Ajouter une competence</h1>
+	{{ form_start(form) }}
+	{{ form_row(form.nom,{'attr':{'label':'nom du competence ','placeholder':'nom du competence'}}) }}
+	{{ form_row(form.niveau,{'attr':{'label':'niveau','placeholder':'niveau'}}) }}
+	<button type="submit" class="btn btn-success ">Add</button>
+	<a class="nav-link" href="{{ path('competence') }}">back</a>
+
+	{{ form_end(form) }}
+{% endblock %}
