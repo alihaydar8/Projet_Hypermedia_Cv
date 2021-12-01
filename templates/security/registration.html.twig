@@ -1,0 +1,16 @@
+{% extends 'security/index.html.twig' %}
+{% block body %}
+<link rel="stylesheet" href="css/style.css">
+<div class="login">
+{{ form_start(form) }}
+    
+{{ form_row(form.identifiant, {'label':'Identifiant','attr':{'placeholder':'Identifiant'}}) }}
+{{ form_row(form.password, {'label':'Password','attr':{'placeholder':'Password'}}) }} 
+{{ form_row(form.confirm_password, {'label':'Confirm Password','attr':{'placeholder':'Confirm Password'}}) }}
+
+<button type="submit" class="btn btn-primary btn-block btn-large"> Inscription </button>
+<a href="{{ path('security_login') }}" class="btn btn-primary btn-block btn-large">login</a>
+
+{{ form_end(form) }}
+</div>
+{% endblock %}

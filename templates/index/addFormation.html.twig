@@ -1,14 +1,17 @@
+{% extends 'base.html.twig' %}
 {% block body %}
-	{% form_theme form 'bootstrap_4_layout.html.twig' %}
 
 	<h1>Ajouter une formation</h1>
 	{{ form_start(form) }}
 	{{ form_row(form.title,{'attr':{'label':'Nom de la formation ','placeholder':'Nom de la formation'}}) }}
 	{{ form_row(form.univ,{'attr':{'label':"Nom de l'etablisement",'placeholder':"Nom de l'etablisement"}}) }}
 	{{ form_row(form.anneeScolaire,{'attr':{'label':'Annee Scolaire','placeholder':'Anne Scolaire'}}) }}
+	{{ form_row(form.module,{'attr':{'label':'Module','placeholder':'Module étudier'}}) }}
 
-	<button type="submit" class="btn btn-success ">Add</button>
-	<a class="nav-link" href="{{ path('formation') }}">back</a>
+	<button type="submit" class="btn btn-success btn-lg ">{% if editmode  %} edit  {% else %}Add{% endif  %}</button>
+	<a class="btn btn-outline-danger btn-lg" href="{{ path('formation') }}">back</a>
+
+
 
 	{{ form_end(form) }}
 {% endblock %}

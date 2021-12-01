@@ -1,0 +1,22 @@
+{% extends 'security/index.html.twig' %}
+
+{% block body %}
+<link rel="stylesheet" href="css/style.css">
+<div class="login">	
+{%  if  app.user %}
+<h1>you are connected </h1>
+<a href="{{ path('security_logout') }}" class="btn btn-primary btn-block btn-large">logout</a>
+{% else %}
+<div style="text-align: center;">
+   <img src="Image/photo.jpg" style="width:100px" align="center" />
+</div>
+<h1>Login</h1>
+<form action="{{ path('security_login') }}" method="post">
+<input placeholder="Adresse email   " type="text" required name="_username"/>
+<input placeholder="mot de pass   " type="password" required name="_password"/>
+<button type ="submit" class="btn btn-primary btn-block btn-large"> Connexion !</button>
+<button type ="reset" class="btn btn-primary btn-block btn-large"> reset </button>
+</form>
+<a href="{{ path('security_registration') }}" class="btn btn-primary btn-block btn-large">Inscription</a>{% endif %}
+</div>
+{% endblock %}

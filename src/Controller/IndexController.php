@@ -52,9 +52,12 @@ class IndexController extends AbstractController
 
     /**
      * @Route("/competence/add/", name="competence_add")
+     * @Route("/competence/{id}/edit", name="competence_edit")
      */
-    public function addCompetence(Request $request, EntityManagerInterface $manager)
+    public function addCompetence(competence $competence=null,  Request $request, EntityManagerInterface $manager)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        if ($competence==null)
         $competence = new Competence();
 
 
@@ -68,15 +71,18 @@ class IndexController extends AbstractController
         }
 
         return $this->render('index/addCompetence.html.twig', [
-            'form' => $form->createView(),
+            'form' => $form->createView(),'editmode'=>$competence->getId() !== null
         ]);
     }
 
     /**
      * @Route("/experience/add/", name="experience_add")
+     * @Route("/experience/{id}/edit", name="experience_edit")
      */
-    public function addExperience(Request $request, EntityManagerInterface $manager)
+    public function addExperience(Experience $experience=null,  Request $request, EntityManagerInterface $manager)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        if($experience==null)
         $experience = new Experience();
 
 
@@ -90,15 +96,18 @@ class IndexController extends AbstractController
         }
 
         return $this->render('index/addExperience.html.twig', [
-            'form' => $form->createView(),
+            'form' => $form->createView(),'editmode'=>$experience->getId() !== null
         ]);
     }
 
     /**
      * @Route("/formation/add/", name="formation_add")
+     * @Route("/formation/{id}/edit", name="formation_edit")
      */
-    public function addFormation(Request $request, EntityManagerInterface $manager)
+    public function addFormation(Formation $formation=null, Request $request, EntityManagerInterface $manager)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        if($formation==null)
         $formation = new Formation();
 
 
@@ -112,7 +121,7 @@ class IndexController extends AbstractController
         }
 
         return $this->render('index/addFormation.html.twig', [
-            'form' => $form->createView(),
+            'form' => $form->createView(),'editmode'=>$formation->getId() !== null
         ]);
     }
 }
